@@ -1,0 +1,23 @@
+.titlecaa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;    
+  gap: 15px;              
+  margin-top: 20px;
+}
+
+.titlecaa button { 
+  background: transparent;  /* Remove a cor cinza de fundo */
+  border: none;             /* Remove a borda padrão do botão */
+  padding: 0;               /* Zera o padding para o botão grudar na imagem */
+  width: 300px;             /* Ajuste o tamanho final desejado aqui */
+  height: 300px;
+  cursor: pointer;
+  display: flex;
+}
+
+.titlecaa button img {
+  width: 100%;       
+  height: 100%;
+  object-fit: contain;
+}
