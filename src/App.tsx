@@ -1,39 +1,37 @@
 
-import { useEffect, useState } from 'react';
-import './App.css'
-import { Header } from './components/Header';
-import { Main } from './components/Main';
-import { SubMenu } from './components/SubMenu';
+  import { useEffect, useState } from 'react';
+  import './App.css'
+  import { Header } from './components/Header';
+  import { Main } from './components/Main';
+  import { SubMenu } from './components/SubMenu';
 
 
-function App() {
-const [categoriaSelecionada, setCategoriaSelecionada] = useState<string>('');
+  function App() {
+  const [categoriaSelecionada, setCategoriaSelecionada] = useState<string>('');
 
-useEffect(() => {
-  window.speechSynthesis.getVoices();
-}, []);
- //const categorias
-//const subOpcoes
+  useEffect(() => {
+    window.speechSynthesis.getVoices();
+  }, []);
+  
+    return (
+      <>
+      
+      <Header/>
 
-  return (
-    <>
-    
-    <Header/>
+      {categoriaSelecionada === '' && (
+        <Main onSelecionarCategoria={setCategoriaSelecionada}/>
+        )}
 
-    {categoriaSelecionada === '' && (
-      <Main onSelecionarCategoria={setCategoriaSelecionada}/>
-      )}
+      {categoriaSelecionada && (
+        <SubMenu 
+        CategoriaSelecionada={categoriaSelecionada}
+        onSelecionarCategoria={setCategoriaSelecionada}/>
+        )}
+      
+      
+      </>
+    )
+  }
 
-    {categoriaSelecionada && (
-      <SubMenu 
-      CategoriaSelecionada={categoriaSelecionada}
-      onSelecionarCategoria={setCategoriaSelecionada}/>
-      )}
-    
-    
-    </>
-  )
-}
-
-export default App
+  export default App
 

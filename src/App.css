@@ -1,22 +1,153 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html, body {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
-  background: linear-gradient(180deg, #E2F1F8 0%, #CCE7F5 100%);
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background: linear-gradient(180deg, #E2F1F0 0%, #CCE7F5 100%);
   background-attachment: fixed;
-}
-
-/* Seu #root original intacto */
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 body {
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
-  background: linear-gradient(180deg, #E2F1F8 0%, #CCE7F5 100%);
-  background-attachment: fixed; /* Garante que o gradiente cubra toda a tela ao rolar */
+  padding: 16px;
+}
+
+#root {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container do Header */
+.header-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+/* Container pai */
+.titlecaa {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Área do botão com tamanho cravado */
+.titlecaa button {
+  width: 200px;
+  height: 200px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  
+  display: block;
+  flex-shrink: 0;
+  
+  margin-bottom: 24px;
+  
+  transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.titlecaa button:last-child {
+  margin-bottom: 0;
+}
+
+.titlecaa button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+}
+
+.titlecaa button:focus,
+.titlecaa button:focus-visible {
+  outline: none;
+}
+
+
+.titlecaa button:active {
+  transform: scale(0.92) !important;
+}
+
+/* Hover suave no Desktop */
+@media (hover: hover) and (pointer: fine) {
+  .titlecaa button:hover {
+    transform: scale(1.05) !important;
+  }
+}
+
+/* Regra (Desktop) */
+@media (min-width: 768px) {
+  .titlecaa {
+    flex-direction: row; 
+  }
+
+  .titlecaa button {
+    width: 220px;
+    height: 220px;
+    
+    margin-bottom: 0;
+    margin-right: 150px;
+  }
+
+  .titlecaa button:last-child {
+    margin-right: 0;
+  }
+}
+
+.titlecaa button:focus,
+.titlecaa button:focus-visible {
+  outline: none;
+}
+
+.titlecaa button:active {
+  transform: scale(0.92) !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .titlecaa button:hover {
+    transform: scale(1.08) !important;
+  }
+}
+
+/* Botões MOBILE */
+@media (min-width: 484px) {
+  .titlecaa {
+    flex-direction: row;
+    justify-content: center;
+    gap: 32px;
+  }
+
+  .titlecaa button {
+    max-width: 140px;
+  }
 }

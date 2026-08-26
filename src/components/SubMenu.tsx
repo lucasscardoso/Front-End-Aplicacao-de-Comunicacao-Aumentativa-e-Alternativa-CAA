@@ -11,7 +11,7 @@ import { SubMenuProps } from "../interfaces/SubMenuProps";
             <h2>{CategoriaSelecionada.toUpperCase()}: </h2>
 
             {subOpcoes[CategoriaSelecionada].map((opcao,index) => (
-                <button key={index} onClick={() => falarTexto(opcao)}>
+                <button key={index} onClick={() => falarTexto(opcao)} style={{ marginBottom: '12px' }}>
                 {opcao}
                 </button>
             ))}
