@@ -9,6 +9,7 @@
   import { ButtonsByCategory, groupButtonsByCategory } from './backend/service/ButtonsByCategory';
   import { CircularProgressbar } from 'react-circular-progressbar';
   import 'react-circular-progressbar/dist/styles.css';
+import { fetchAllButtons } from './backend/service/communicationService';
 
 
   function App() {
@@ -24,12 +25,11 @@
 
    useEffect(() => {
     if (!exibirHome) {
-      // 1. Reseta os estados de carregamento
       setIsTimeUp(false);
       setPercentage(0);
       setLoading(true);
 
-      // 2. Inicia o timer com incrementos de 20 a cada 1 segundo (1000ms)
+      
       const interval = setInterval(() => {
         setPercentage((prev) => {
           if (prev >= 100) {
@@ -41,9 +41,8 @@
         });
       }, 1000);
 
-      // 3. Chamada da API
-      fetch('/api/buttons/findallbuttons')
-        .then((res) => res.json())
+      
+      fetchAllButtons()
         .then((data: CommunicationButton[]) => {
           const agrupados = groupButtonsByCategory(data);
           setBotoesAgrupados(agrupados);
@@ -51,7 +50,7 @@
         .catch((err) => console.error("Erro ao carregar botões:", err))
         .finally(() => setLoading(false));
 
-      // 4. Limpeza do intervalo caso o componente desmonte
+      
       return () => clearInterval(interval);
     }
   }, [exibirHome]);
@@ -72,7 +71,7 @@
   
       const exibirLoading = loading || !isTimeUp;
 
-  // Tratamento visual enquanto traz os dados da API Java
+
   if (exibirLoading) {
     return (
       <>
@@ -86,24 +85,13 @@
   }
 
  
-
- 
-
-  if (loading) return <div>Carregando botões...</div>;
-
-
- 
-
   return (
     <>
       <Header />
-
-      {/* Renderiza as opções principais (com as imagens fixas) */}
       {categoriaSelecionada === '' && (
         <Main onSelecionarCategoria={setCategoriaSelecionada} />
       )}
 
-      {/* Renderiza o SubMenu passando a lista dinâmica filtrada pela chave */}
       {categoriaSelecionada && (
         <SubMenu
           CategoriaSelecionada={categoriaSelecionada}
