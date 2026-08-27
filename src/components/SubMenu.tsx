@@ -1,25 +1,29 @@
-import { subOpcoes } from "../constants/opcoesData";
+
 import { falarTexto } from "../constants/speech";
 import { SubMenuProps } from "../interfaces/SubMenuProps";
 
  
  
- export function SubMenu({CategoriaSelecionada,onSelecionarCategoria}: SubMenuProps){
+ export function SubMenu({CategoriaSelecionada,botoesDaCategoria = [],onSelecionarCategoria}: SubMenuProps){
     return(
         <div>
             <main>
             <h2>{CategoriaSelecionada.toUpperCase()}: </h2>
 
-            {subOpcoes[CategoriaSelecionada].map((opcao,index) => (
-                <button key={index} onClick={() => falarTexto(opcao)} style={{ marginBottom: '12px' }}>
-                {opcao}
-                </button>
-            ))}
+           {botoesDaCategoria.map((botao) => (
+                    <button
+                        key={botao.id} 
+                        onClick={() => falarTexto(botao.speechText)}
+                        style={{ marginBottom: "12px", display: "inline-block" }}
+                    >
+                        {botao.label} {}
+                    </button>
+              ))}
 
-            <button onClick={() => onSelecionarCategoria('')}> Voltar</button>
+         <button onClick={() => onSelecionarCategoria("")}>Voltar</button>
+      </main>
+    </div>
 
-            </main>
-  </div>
     );
  }
  
