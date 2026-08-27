@@ -24,7 +24,7 @@ body {
 
 #root {
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,105 +49,17 @@ main {
   margin-bottom: 32px;
 }
 
-/* Container pai */
-.titlecaa {
-  display: flex;
-  flex-direction: column; 
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin: 0 auto;
-}
-
-/* Área do botão com tamanho cravado */
-.titlecaa button {
-  width: 200px;
-  height: 200px;
-  padding: 0;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  
-  display: block;
-  flex-shrink: 0;
-  
-  margin-bottom: 24px;
-  
-  transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.titlecaa button:last-child {
-  margin-bottom: 0;
-}
-
-.titlecaa button img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-  pointer-events: none;
-}
-
-.titlecaa button:focus,
-.titlecaa button:focus-visible {
-  outline: none;
-}
-
-
-.titlecaa button:active {
-  transform: scale(0.92) !important;
-}
-
-/* Hover suave no Desktop */
-@media (hover: hover) and (pointer: fine) {
-  .titlecaa button:hover {
-    transform: scale(1.05) !important;
-  }
-}
-
-/* Regra (Desktop) */
+/* Desktop e Telas Maiores */
 @media (min-width: 768px) {
-  .titlecaa {
-    flex-direction: row; 
-  }
-
-  .titlecaa button {
-    width: 220px;
-    height: 220px;
-    
-    margin-bottom: 0;
-    margin-right: 150px;
-  }
-
-  .titlecaa button:last-child {
-    margin-right: 0;
-  }
-}
-
-.titlecaa button:focus,
-.titlecaa button:focus-visible {
-  outline: none;
-}
-
-.titlecaa button:active {
-  transform: scale(0.92) !important;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .titlecaa button:hover {
-    transform: scale(1.08) !important;
-  }
-}
-
-/* Botões MOBILE */
-@media (min-width: 484px) {
   .titlecaa {
     flex-direction: row;
     justify-content: center;
-    gap: 32px;
+    gap: 40px;
   }
 
   .titlecaa button {
-    max-width: 140px;
+    width: 260px;  /* Tamanho real do botão no desktop */
+    height: 260px;
+    max-width: none;
   }
 }

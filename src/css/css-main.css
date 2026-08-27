@@ -1,83 +1,78 @@
-
-/*MOBILE FIRST*/
-   
-
-  @keyframes entradaSuave {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+@keyframes entradaSuave {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-
-  .titlecaa {
-    display: flex;
-    flex-direction: column !important;
-    align-items: center;    
-    gap: 24px;              
-    margin-top: 20px;
-    width: 100%;
-    animation: entradaSuave 0.3s ease-out; /* Controla a velocidade de entrada da tela */
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
+.titlecaa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  margin-top: 20px;
+  animation: entradaSuave 0.3s ease-out;
+}
+
+.titlecaa button {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+
+  width: 100%;
+  max-width: 200px;
+  aspect-ratio: 1 / 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.2s ease-in-out;
+  will-change: transform;
+}
+
+.titlecaa button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
   
-
-  .titlecaa button {
-    width: 80vw;            
-    max-width: 240px;        
-    aspect-ratio: 1 / 1;    
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    padding: 0;
-    
-    transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: transform;
-  }
-
-  .titlecaa button img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  .titlecaa button:focus {
-  outline: none;
+  /* Zoom na imagem para descartar visualmente as margens transparentes */
+  transform: scale(1.6);
+  transform-origin: center;
 }
 
-.titlecaa button:focus-visible {
-  outline: none;
+.titlecaa button:active {
+  transform: scale(0.92) !important;
 }
 
- 
-  .titlecaa button:active {
-   
-    transform: scale(0.92) !important; 
-    transition: transform 0.05s ease-out;
+@media (hover: hover) and (pointer: fine) {
+  .titlecaa button:hover {
+    transform: scale(1.1) !important;
   }
+}
 
-
-  /*REGRAS  MOUSE (DESKTOP)*/
-  @media (hover: hover) and (pointer: fine) {
-    .titlecaa button:hover {
-      transform: scale(1.08) !important; 
-    }
-  }
-
-
-  /* DESKTOP (A partir de 768px)*/
- @media (min-width: 768px) {
+/* DESKTOP */
+@media (min-width: 768px) {
   .titlecaa {
-    flex-direction: row !important;
+    flex-direction: row;
     justify-content: center;
-    flex-wrap: nowrap;
-    gap: 32px;
+    gap: 60px; /* Espaço entre os botões */
   }
 
   .titlecaa button {
-    max-width: 240px;
+    max-width: 320px;
+    width: 320px;
+    height: 320px;
   }
 }
