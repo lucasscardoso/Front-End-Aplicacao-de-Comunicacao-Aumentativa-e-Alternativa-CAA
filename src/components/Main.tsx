@@ -1,26 +1,29 @@
 import { MenuProps } from "../interfaces/MenuProps";
 import "../css/css-main.css";
+import necessidadesImg from '../assets/sem-fundo-necessidade.png'
+import sentimetosImg from '../assets/sentimentos-sem-fundo.png'
+import saudacoesImg from '../assets/saudacoes-sem-fundo.png'
 
 export function Main({ onSelecionarCategoria }: MenuProps) {
   return (
     <main className="titlecaa">
       <button onClick={() => onSelecionarCategoria('necessidades')}>
         <img 
-          src={'src/assets/imagens/sem-fundo-necessidade.png'} 
+          src={necessidadesImg} 
           alt="Necessidades" 
         />
       </button>
 
       <button onClick={() => onSelecionarCategoria('saudacoes')}>
         <img 
-          src={'src/assets/imagens/saudacoes-sem-fundo.png'} 
+          src={saudacoesImg} 
           alt="Saudações" 
         />
       </button>
 
       <button onClick={() => onSelecionarCategoria('sentimentos')}>
         <img 
-          src={'src/assets/imagens/sentimentos-sem-fundo.png'} 
+          src={sentimetosImg} 
           alt="Sentimentos" 
         />
       </button>

@@ -10,9 +10,11 @@
   const [categoriaSelecionada, setCategoriaSelecionada] = useState<string>('');
 
   useEffect(() => {
-    window.speechSynthesis.getVoices();
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window && window.speechSynthesis) {
+      window.speechSynthesis.getVoices();
+    }
   }, []);
-  
+    
     return (
       <>
       

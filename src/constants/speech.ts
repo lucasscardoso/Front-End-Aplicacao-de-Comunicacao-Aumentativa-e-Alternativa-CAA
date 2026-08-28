@@ -1,4 +1,10 @@
  export const falarTexto = (texto: string) => {
+
+  // Verifica se o navegador/WebView suporta a API de voz
+  if (typeof window === 'undefined' || !('speechSynthesis' in window) || !window.speechSynthesis) {
+    console.warn('SpeechSynthesis não é suportado neste dispositivo/WebView.');
+    return;
+  }
   //Cancela qualquer fala que esteja acontecendo no momento
   window.speechSynthesis.cancel();
 
@@ -7,7 +13,7 @@
   mensagem.lang = 'pt-BR';
 
 //Obtém todas as vozes disponíveis no navegador
-  const vozes = window.speechSynthesis.getVoices();
+  const vozes = window.speechSynthesis?.getVoices ? window.speechSynthesis.getVoices() : [];
 
   //Procura por vozes em português do Brasil femininas
   const vozFeminina = vozes.find(
