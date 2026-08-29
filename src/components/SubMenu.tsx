@@ -1,6 +1,7 @@
 import { subOpcoes } from "../constants/opcoesData";
 import { falarTexto } from "../constants/speech";
 import { SubMenuProps } from "../interfaces/SubMenuProps";
+import { playClickSound } from "./ClickAudio";
 
  
  
@@ -16,7 +17,7 @@ import { SubMenuProps } from "../interfaces/SubMenuProps";
                 </button>
             ))}
 
-            <button onClick={() => onSelecionarCategoria('')}> Voltar</button>
+            <button onClick={() => {playClickSound(); onSelecionarCategoria('')}} > Voltar</button>
 
             </main>
   </div>

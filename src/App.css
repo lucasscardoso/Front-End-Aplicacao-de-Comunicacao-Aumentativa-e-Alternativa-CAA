@@ -6,19 +6,21 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden;
+  overflow-y: auto; /* Permite rolagem quando os 5 botões não couberem na tela */
   background: linear-gradient(180deg, #E2F1F0 0%, #CCE7F5 100%);
   background-attachment: fixed;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
+/* Centralização do layout no body */
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 100vh;
+  justify-content: flex-start; /* Evita que o topo seja cortado */
   padding: 16px;
 }
 
@@ -28,17 +30,15 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 main {
   width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  padding: 12px;
 }
-
 /* Container do Header */
 .header-container {
   width: 100%;
@@ -46,20 +46,38 @@ main {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
+  flex-shrink: 0; /* Impede o header de sumir ou ser espremido */
 }
 
-/* Desktop e Telas Maiores */
-@media (min-width: 768px) {
-  .titlecaa {
-    flex-direction: row;
-    justify-content: center;
-    gap: 40px;
-  }
-
-  .titlecaa button {
-    width: 260px;  /* Tamanho real do botão no desktop */
-    height: 260px;
-    max-width: none;
-  }
+/* Layout em Grid Flexível para os botões do menu */
+.titlecaa {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 16px !important;
+  width: 100% !important;
+  max-width: 600px !important;
 }
+
+.titlecaa button {
+  /* Usando rem/px fixo para evitar bug de cálculo de viewport no WebView rotacionado */
+  width: 120px !important;
+  height: 120px !important;
+  min-width: 120px !important;
+  min-height: 120px !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  cursor: pointer;
+  flex-shrink: 0 !important;
+}
+
+.titlecaa button img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
