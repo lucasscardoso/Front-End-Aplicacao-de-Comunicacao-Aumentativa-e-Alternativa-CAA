@@ -1,7 +1,7 @@
 import { subOpcoes } from "../constants/opcoesData";
 import { falarTexto } from "../constants/speech";
 import { SubMenuProps } from "../interfaces/SubMenuProps";
-import { playClickSound } from "./ClickAudio";
+import { playClickSound } from "./audioUtils/ClickAudio";
 
  
  

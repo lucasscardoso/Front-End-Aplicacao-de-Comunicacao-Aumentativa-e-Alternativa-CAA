@@ -4,15 +4,16 @@
   import { Header } from './components/Header';
   import { Main } from './components/Main';
   import { SubMenu } from './components/SubMenu';
+import { startBackgroundMusic } from './components/audioUtils/BackGround';
 
 
   function App() {
   const [categoriaSelecionada, setCategoriaSelecionada] = useState<string>('');
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && 'speechSynthesis' in window && window.speechSynthesis) {
-      window.speechSynthesis.getVoices();
-    }
+
+    startBackgroundMusic();
+
   }, []);
     
     return (

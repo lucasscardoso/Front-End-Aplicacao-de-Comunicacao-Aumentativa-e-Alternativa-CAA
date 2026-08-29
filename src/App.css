@@ -9,7 +9,7 @@ html, body {
   min-height: 100vh;
   min-height: 100dvh;
   overflow-x: hidden;
-  overflow-y: auto; /* Permite rolagem quando os 5 botões não couberem na tela */
+  overflow-y: auto; 
   background: linear-gradient(180deg, #E2F1F0 0%, #CCE7F5 100%);
   background-attachment: fixed;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -20,7 +20,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Evita que o topo seja cortado */
+  justify-content: flex-start; 
   padding: 16px;
 }
 
@@ -47,7 +47,7 @@ main {
   align-items: center;
   text-align: center;
   margin-bottom: 24px;
-  flex-shrink: 0; /* Impede o header de sumir ou ser espremido */
+  flex-shrink: 0; 
 }
 
 /* Layout em Grid Flexível para os botões do menu */
@@ -63,7 +63,7 @@ main {
 }
 
 .titlecaa button {
-  /* Usando rem/px fixo para evitar bug de cálculo de viewport no WebView rotacionado */
+  
   width: 120px !important;
   height: 120px !important;
   min-width: 120px !important;

@@ -3,7 +3,7 @@ import "../css/css-main.css";
 import necessidadesImg from "../assets/sem-fundo-necessidade.png";
 import sentimentosImg from "../assets/sentimentos-sem-fundo.png";
 import saudacoesImg from "../assets/saudacoes-sem-fundo.png";
-import { playClickSound } from "./ClickAudio";
+import { playClickSound } from "./audioUtils/ClickAudio";
 
 export function Main({ onSelecionarCategoria }: MenuProps) {
     

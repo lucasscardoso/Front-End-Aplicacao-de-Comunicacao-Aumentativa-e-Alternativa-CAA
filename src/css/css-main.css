@@ -5,7 +5,7 @@
   flex-wrap: wrap !important;
   justify-content: center !important;
   align-items: center !important;
-  gap: 8px !important; /* Diminuído para aproximar os botões */
+  gap: 8px !important;
   width: 100% !important;
   max-width: 800px !important;
 }
@@ -18,7 +18,7 @@
   cursor: pointer !important;
   flex: 0 0 auto !important;
   
-  /* Dimensões ajustadas para enxugar a borda externa */
+
   width: 150px !important; 
   height: 150px !important;
   
