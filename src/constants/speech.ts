@@ -1,36 +1,17 @@
- export const falarTexto = (texto: string) => {
+import { TextToSpeech } from '@capacitor-community/text-to-speech';
 
-  // Verifica se o navegador/WebView suporta a API de voz
-  if (typeof window === 'undefined' || !('speechSynthesis' in window) || !window.speechSynthesis) {
-    console.warn('SpeechSynthesis não é suportado neste dispositivo/WebView.');
-    return;
-  }
-  //Cancela qualquer fala que esteja acontecendo no momento
-  window.speechSynthesis.cancel();
+export const falarTexto = async (texto: string) => {
+    try {
+        await TextToSpeech.stop();
 
-  const mensagem = new SpeechSynthesisUtterance(texto);
-
-  mensagem.lang = 'pt-BR';
-
-//Obtém todas as vozes disponíveis no navegador
-  const vozes = window.speechSynthesis?.getVoices ? window.speechSynthesis.getVoices() : [];
-
-  //Procura por vozes em português do Brasil femininas
-  const vozFeminina = vozes.find(
-    (voz) =>
-      voz.lang.includes('pt-BR') &&
-      (voz.name.includes('Luciana') ||
-       voz.name.includes('Helena') ||
-       voz.name.includes('Google português do Brasil') ||
-       voz.name.includes('Francisca') ||
-       voz.name.includes('Yalda'))
-  );
-
-  //Se encontrar a voz feminina, atribui à mensagem
-  if (vozFeminina) {
-    mensagem.voice = vozFeminina;
-  }
-
-  window.speechSynthesis.speak(mensagem);
-      };
-  
+        await TextToSpeech.speak({
+            text: texto,
+            lang: 'pt-BR',
+            rate: 1.0,
+            pitch: 1.0,
+            volume: 1.0
+        });
+    } catch (error) {
+        console.error('Erro ao falar texto:', error);
+    }
+};

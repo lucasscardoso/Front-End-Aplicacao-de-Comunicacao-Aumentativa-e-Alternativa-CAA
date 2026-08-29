@@ -4,7 +4,10 @@ import necessidadesImg from '../assets/sem-fundo-necessidade.png'
 import sentimetosImg from '../assets/sentimentos-sem-fundo.png'
 import saudacoesImg from '../assets/saudacoes-sem-fundo.png'
 
+
 export function Main({ onSelecionarCategoria }: MenuProps) {
+
+
   return (
     <main className="titlecaa">
       <button onClick={() => onSelecionarCategoria('necessidades')}>
@@ -27,6 +30,7 @@ export function Main({ onSelecionarCategoria }: MenuProps) {
           alt="Sentimentos" 
         />
       </button>
+
     </main>
   );
 }
