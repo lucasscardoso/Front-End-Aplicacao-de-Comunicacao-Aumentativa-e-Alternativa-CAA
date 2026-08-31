@@ -1,8 +1,10 @@
 import { MenuProps } from "../interfaces/MenuProps";
 import "../css/css-main.css";
-import necessidadesImg from "../assets/sem-fundo-necessidade.png";
-import sentimentosImg from "../assets/sentimentos-sem-fundo.png";
-import saudacoesImg from "../assets/saudacoes-sem-fundo.png";
+import necessidadesImg from "../assets/botoes/sem-fundo-necessidade.png";
+import sentimentosImg from "../assets/botoes/sentimentos-sem-fundo.png";
+import saudacoesImg from "../assets/botoes/saudacoes-sem-fundo.png";
+import acoesImg from "../assets/botoes/acoes.png";
+import socialImg from "../assets/botoes/social.png";
 import { playClickSound } from "./audioUtils/ClickAudio";
 
 export function Main({ onSelecionarCategoria }: MenuProps) {
@@ -23,11 +25,11 @@ export function Main({ onSelecionarCategoria }: MenuProps) {
         </button>
 
         <button onClick={() => {playClickSound();onSelecionarCategoria('acoes')}}>
-          <img src={sentimentosImg} alt="Ações" />
+          <img src={acoesImg} alt="Ações" />
         </button>
 
         <button onClick={() => {playClickSound();onSelecionarCategoria('social')}}>
-          <img src={sentimentosImg} alt="Social e Afeto" />
+          <img src={socialImg} alt="Social e Afeto"  />
         </button>
       </div>
     </main>
