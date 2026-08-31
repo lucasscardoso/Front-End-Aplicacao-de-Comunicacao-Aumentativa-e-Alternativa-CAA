@@ -21,6 +21,16 @@
   margin-bottom: 12px;
 }
 
+.submenu-title {
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
 /* Botão flexível que respeita a altura da tela */
 .submenu-card-button {
   width: 100% !important;

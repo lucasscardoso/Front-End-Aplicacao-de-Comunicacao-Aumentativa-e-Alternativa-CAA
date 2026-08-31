@@ -9,9 +9,11 @@ import "../css/submenu.css"
  export function SubMenu({CategoriaSelecionada,onSelecionarCategoria}: SubMenuProps){
     return(
         <div className="submenu-main">
+          
+          <div>
+              <h2 className="submenu-title">{CategoriaSelecionada.toUpperCase()}: </h2>
+          </div>
             <main>
-            <h2 className="submenu-title">{CategoriaSelecionada.toUpperCase()}: </h2>
-
            <div className="submenu-grid">
           {subOpcoes[CategoriaSelecionada]?.map((opcao, index) => (
             <button
